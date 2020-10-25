@@ -5,15 +5,19 @@ Created on Wed Oct 23 16:24:56 2020
 @author: admin
 """
 
+'''
+程序的实现思路再调整一下，条件分支的层级太多，不好
+'''
+
 import random
 n=random.randint(0, 100)
 print(n)
 try:
-    m=eval(input('请输入一个0到100的整数:'))
-    if type(m)==int:
-        if m < 100 and m > 0:
+    m=eval(input('请输入一个0到100的整数:'))    # 你的目的是要转化为整数，不用eval
+    if type(m)==int:    # 这个用法也不好，不需要判断类型，只需要进行转化即可
+        if m < 100 and m > 0:    # 把这个条件判断放到循环里面
             count=1
-            while m != n:
+            while m != n:   # 这里的条件和下面的，有点乱。并且，程序能满足多次输入吗？
                 if m != n:    
                     if m > n:
                         print("你猜的也太大了")
